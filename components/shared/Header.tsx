@@ -17,14 +17,23 @@ const Header = () => {
         </Link>
 
         <SignedIn>
-          <nav className="md:flex-between hidden w-full max-w-xs">
-            <NavItems />
-          </nav>
+        <nav className="hidden md:flex items-center ml-auto">
+  <div className="flex items-center justify-center w-full mb-4 md:mb-0">
+    <Link href="/events/create" className="create-event-button">
+      Create Event
+      <div className="animated-border-box-glow"></div>
+      <div className="animated-border-box"></div>
+    </Link>
+  </div>
+  <NavItems />
+</nav>
+
         </SignedIn>
 
         <div className="flex w-32 justify-end gap-3">
           <SignedIn>
             <UserButton afterSignOutUrl="/" />
+            
             <MobileNav />
           </SignedIn>
           <SignedOut>

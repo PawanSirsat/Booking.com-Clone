@@ -1,16 +1,14 @@
-export const headerLinks = [
+export const headerLinks = [ 
   {
-    label: 'Home',
-    route: '/',
-  },
-  {
-    label: 'Create Event',
-    route: '/events/create',
-  },
-  {
-    label: 'My Profile',
+    label: 'Ticket',
     route: '/profile',
+    imglink: '/assets/images/ticket-50.png'
   },
+  {
+    label: 'Notification',
+    route: '/events/create',
+    imglink: '/assets/images/notification-50.png'
+  }
 ]
 
 export const eventDefaultValues = {

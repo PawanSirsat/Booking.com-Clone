@@ -78,8 +78,7 @@ body {
 }
 
 .filter-grey {
-  filter: brightness(0) saturate(100%) invert(47%) sepia(0%) saturate(217%)
-    hue-rotate(32deg) brightness(98%) contrast(92%);
+  filter: brightness(0) saturate(100%) invert(47%) sepia(0%) saturate(217%) hue-rotate(32deg) brightness(98%) contrast(92%);
 }
 
 /* ========================================== TAILWIND STYLES */
@@ -99,7 +98,7 @@ body {
   /* TYPOGRAPHY */
   /* 64 */
   .h1-bold {
-    @apply font-bold text-[40px] leading-[48px] lg:text-[48px] lg:leading-[60px]  xl:text-[58px] xl:leading-[74px];
+    @apply font-bold text-[40px] leading-[48px] lg:text-[48px] lg:leading-[60px] xl:text-[58px] xl:leading-[74px];
   }
 
   /* 40 */
@@ -222,7 +221,7 @@ body {
   }
 
   .select-item {
-    @apply py-3 cursor-pointer  focus:bg-primary-50;
+    @apply py-3 cursor-pointer focus:bg-primary-50;
   }
 
   .toggle-switch {
@@ -275,3 +274,156 @@ body {
   background-color: #624cf5 !important;
 }
 
+/* styles.css or a CSS-in-JS solution */
+
+.icon-active img {
+  filter: brightness(0) saturate(100%) invert(28%) sepia(99%) saturate(1856%) hue-rotate(200deg) brightness(103%) contrast(101%);
+}
+
+.shine-container {
+  position: relative;
+  display: inline-block;
+}
+
+.shine-effect {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.icon-active .shine-effect {
+  animation: shine 2s infinite, zoom 0.3s forwards;
+}
+
+.icon-active .shine-effect::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+  z-index: 2;
+  animation: shine2 2s infinite;
+}
+
+@keyframes shine2 {
+  0% {
+    top: -100%;
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.create-event-button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  overflow: hidden;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #292a2e, #393b40);
+  transition: background 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+  z-index: 1;
+}
+
+.create-event-button:hover {
+  background: linear-gradient(45deg, #393b40, #292a2e);
+  color: #353636;
+  box-shadow: 0 0 15px rgba(120, 115, 245, 0.7), 0 0 25px rgba(120, 115, 245, 0.5), 0 0 35px rgba(120, 115, 245, 0.3);
+}
+
+.create-event-button:before,
+.create-event-button:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  z-index: -1;
+  transition: opacity 0.5s ease;
+}
+
+.create-event-button:before {
+  background: linear-gradient(60deg, #ff6ec4, #7873f5, #78ffd6, #ffadf7);
+  background-size: 200% 200%;
+  filter: blur(8px);
+  opacity: 0.6;
+  animation: colorChange 10s ease infinite;
+}
+
+.create-event-button:after {
+  background: linear-gradient(60deg, #ff6ec4, #7873f5, #78ffd6, #ffadf7);
+  background-size: 200% 200%;
+  filter: blur(12px);
+  opacity: 0.8;
+  animation: colorChange 10s ease infinite, pulse 2s infinite;
+}
+
+.create-event-button:hover:before,
+.create-event-button:hover:after {
+  opacity: 1;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes colorChange {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.event-type {
+  @apply flex items-center justify-center rounded-md transition-transform;
+}
+
+.event-type-text {
+  @apply text-white text-5xl font-extrabold mr-4;
+}
+
+.event-type-hover {
+  @apply transform scale-105 shadow-lg;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.centered-grid {
+  @apply grid grid-cols-1 gap-4 md:grid-cols-3;
+}
